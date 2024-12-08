@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ishan
+      changes:
+        - createTable:
+            tableName: order_detail_item
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(38,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_detail_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_order_detail_item_order_id
+                    references: order_detail(id)
+              - column:
+                  name: menu_item_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_order_detail_item_menu_item_id
+                    references: menu_item(id)

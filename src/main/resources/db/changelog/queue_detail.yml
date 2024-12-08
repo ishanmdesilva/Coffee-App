@@ -1,0 +1,135 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ishan
+      changes:
+        - createTable:
+            tableName: queue_detail
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: queue_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: size
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: available_count
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: shop_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_queue_shop_id
+                    references: shop_detail(id)
+              - column:
+                  name: version
+                  type: bigint
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: Ishan
+      changes:
+        - insert:
+            tableName: queue_detail
+            columns:
+              - column:
+                  name: queue_name
+                  value: queue 01
+              - column:
+                  name: size
+                  value: 20
+              - column:
+                  name: available_count
+                  value: 20
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: version
+                  value: 0
+        - insert:
+            tableName: queue_detail
+            columns:
+              - column:
+                  name: queue_name
+                  value: queue 02
+              - column:
+                  name: size
+                  value: 20
+              - column:
+                  name: available_count
+                  value: 20
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: version
+                  value: 0
+        - insert:
+            tableName: queue_detail
+            columns:
+              - column:
+                  name: queue_name
+                  value: queue 03
+              - column:
+                  name: size
+                  value: 20
+              - column:
+                  name: available_count
+                  value: 20
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: version
+                  value: 0
+        - insert:
+            tableName: queue_detail
+            columns:
+              - column:
+                  name: queue_name
+                  value: queue 01
+              - column:
+                  name: size
+                  value: 15
+              - column:
+                  name: available_count
+                  value: 15
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: shop_id
+                  value: 2
+              - column:
+                  name: version
+                  value: 0

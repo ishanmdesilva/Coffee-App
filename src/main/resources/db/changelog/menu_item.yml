@@ -1,0 +1,136 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ishan
+      changes:
+        - createTable:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: item_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: decimal(38,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: shop_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_menu_shop_id
+                    references: shop_detail(id)
+  - changeSet:
+      id: 2
+      author: Ishan
+      changes:
+        - insert:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: item_name
+                  value: Cappuccino
+              - column:
+                  name: price
+                  value: 600
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: currency
+                  value: LKR
+        - insert:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: item_name
+                  value: Black coffee
+              - column:
+                  name: price
+                  value: 400
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: currency
+                  value: LKR
+        - insert:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: item_name
+                  value: Cold brew
+              - column:
+                  name: price
+                  value: 800
+              - column:
+                  name: shop_id
+                  value: 1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: currency
+                  value: LKR
+        - insert:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: item_name
+                  value: Cappuccino
+              - column:
+                  name: price
+                  value: 700
+              - column:
+                  name: shop_id
+                  value: 2
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: currency
+                  value: LKR
+        - insert:
+            tableName: menu_item
+            columns:
+              - column:
+                  name: item_name
+                  value: Cold brew
+              - column:
+                  name: price
+                  value: 900
+              - column:
+                  name: shop_id
+                  value: 2
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: currency
+                  value: LKR

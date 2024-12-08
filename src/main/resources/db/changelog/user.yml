@@ -1,0 +1,132 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ishan
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_role_id
+                    references: role(id)
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: Ishan
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: username
+                  value: admin
+              - column:
+                  name: password
+                  value: admin
+              - column:
+                  name: role_id
+                  value: 1
+              - column:
+                  name: status
+                  value: ACTIVE
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: username
+                  value: operator1
+              - column:
+                  name: password
+                  value: operator1
+              - column:
+                  name: role_id
+                  value: 2
+              - column:
+                  name: status
+                  value: ACTIVE
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: username
+                  value: operator2
+              - column:
+                  name: password
+                  value: operator2
+              - column:
+                  name: role_id
+                  value: 2
+              - column:
+                  name: status
+                  value: ACTIVE
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: username
+                  value: customer1
+              - column:
+                  name: password
+                  value: customer1
+              - column:
+                  name: role_id
+                  value: 3
+              - column:
+                  name: status
+                  value: ACTIVE
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: username
+                  value: customer2
+              - column:
+                  name: password
+                  value: customer2
+              - column:
+                  name: role_id
+                  value: 3
+              - column:
+                  name: status
+                  value: ACTIVE

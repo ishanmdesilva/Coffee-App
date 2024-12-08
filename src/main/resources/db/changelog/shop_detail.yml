@@ -1,0 +1,119 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ishan
+      changes:
+        - createTable:
+            tableName: shop_detail
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contact_no_1
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contact_no_2
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_user
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_shop_user_id
+                    references: user(id)
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: open_time
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: close_time
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: decimal(38,6)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: longitude
+                  type: decimal(38,6)
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: 2
+      author: Ishan
+      changes:
+        - insert:
+            tableName: shop_detail
+            columns:
+              - column:
+                  name: name
+                  value: Colombo coffee cafe
+              - column:
+                  name: address
+                  value: colombo 5
+              - column:
+                  name: contact_no_1
+                  value: 011-1233210
+              - column:
+                  name: created_user
+                  value: 1
+              - column:
+                  name: open_time
+                  value: 09:00 AM
+              - column:
+                  name: close_time
+                  value: 10:00 PM
+              - column:
+                  name: status
+                  value: ACTIVE
+        - insert:
+            tableName: shop_detail
+            columns:
+              - column:
+                  name: name
+                  value: Galle coffee cafe
+              - column:
+                  name: address
+                  value: Station road, Galle
+              - column:
+                  name: contact_no_1
+                  value: 091-1233222
+              - column:
+                  name: created_user
+                  value: 1
+              - column:
+                  name: open_time
+                  value: 10:00 AM
+              - column:
+                  name: close_time
+                  value: 09:00 PM
+              - column:
+                  name: status
+                  value: ACTIVE
